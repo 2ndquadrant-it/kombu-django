@@ -2,17 +2,17 @@ from __future__ import absolute_import, unicode_literals
 
 from . import transport
 
-from kombu.tests.case import mock, skip
+from kombu_django import register_transport
+
+register_transport()
 
 
-@skip.unless_module('django')
 class test_django(transport.TransportCase):
     transport = 'django'
     prefix = 'django'
     event_loop_max = 10
 
-    @mock.stdouts
-    def before_connect(self, stdout, stderr):
+    def before_connect(self):
         from django.conf import settings
         if not settings.configured:
             settings.configure(
@@ -26,5 +26,11 @@ class test_django(transport.TransportCase):
                 },
                 INSTALLED_APPS=('kombu_django',),
             )
+        from django import setup, VERSION
+        setup()
         from django.core.management import call_command
-        call_command('syncdb')
+        if VERSION > (1, 8):
+            call_command('makemigrations')
+            call_command('migrate')
+        else:
+            call_command('syncdb')

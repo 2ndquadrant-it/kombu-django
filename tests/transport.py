@@ -219,7 +219,12 @@ class TransportCase(unittest.TestCase):
         chan2 = self.connection.channel()
         consumer = chan2.Consumer([b1, b2, b3])
         messages = consumeN(self.connection, consumer, 3)
-        self.assertItemsEqual(_nobuf(messages), ['b1', 'b2', 'b3'])
+        try:
+            # Python 3
+            self.assertCountEqual(_nobuf(messages), ['b1', 'b2', 'b3'])
+        except AttributeError:
+            # Python 2.7
+            self.assertItemsEqual(_nobuf(messages), ['b1', 'b2', 'b3'])
         chan2.close()
         self.purge([self.P('b1'), self.P('b2'), self.P('b3')])
 
