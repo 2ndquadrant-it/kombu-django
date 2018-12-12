@@ -2,9 +2,9 @@
  kombu_django
 =========================================
 
-.. currentmodule:: kombu_django
+.. currentmodule:: kombu_django.transport
 
-.. automodule:: kombu_django
+.. automodule:: kombu_django.transport
 
     .. contents::
         :local:
