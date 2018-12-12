@@ -1,11 +1,11 @@
 ==========================================================
- Django Models - kombu.transport.django.models
+ Django Models - kombu_django.models
 ==========================================================
 
 .. contents::
     :local:
-.. currentmodule:: kombu.transport.django.models
+.. currentmodule:: kombu_django.models
 
-.. automodule:: kombu.transport.django.models
+.. automodule:: kombu_django.models
     :members:
     :undoc-members:

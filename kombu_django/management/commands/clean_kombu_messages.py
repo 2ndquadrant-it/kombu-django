@@ -13,7 +13,7 @@ class Command(BaseCommand):
     requires_model_validation = True
 
     def handle(self, *args, **options):
-        from kombu.transport.django.models import Message
+        from kombu_django.models import Message
 
         count = Message.objects.filter(visible=False).count()
 

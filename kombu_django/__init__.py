@@ -17,10 +17,10 @@ except ImportError:  # pragma: no cover
     pass
 else:
     class KombuAppConfig(AppConfig):
-        name = 'kombu.transport.django'
+        name = 'kombu_django'
         label = name.replace('.', '_')
         verbose_name = 'Message queue'
-    default_app_config = 'kombu.transport.django.KombuAppConfig'
+    default_app_config = 'kombu_django.KombuAppConfig'
 
 VERSION = (1, 0, 0)
 __version__ = '.'.join(map(str, VERSION))
@@ -30,7 +30,7 @@ POLLING_INTERVAL = getattr(settings, 'KOMBU_POLLING_INTERVAL',
 
 
 class Channel(virtual.Channel):
-    queue_model = 'kombu.transport.django.models:Queue'
+    queue_model = 'kombu_django.models:Queue'
 
     def _new_queue(self, queue, **kwargs):
         self.Queue.objects.get_or_create(name=queue)

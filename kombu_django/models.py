@@ -15,7 +15,7 @@ class Queue(models.Model):
 
     class Meta:
         if django.VERSION >= (1, 7):
-            app_label = 'kombu_transport_django'
+            app_label = 'kombu_django'
         db_table = 'djkombu_queue'
         verbose_name = _('queue')
         verbose_name_plural = _('queues')
@@ -26,13 +26,14 @@ class Message(models.Model):
     sent_at = models.DateTimeField(null=True, blank=True, db_index=True,
                                    auto_now_add=True)
     payload = models.TextField(_('payload'), null=False)
-    queue = models.ForeignKey(Queue, related_name='messages')
+    queue = models.ForeignKey(Queue, related_name='messages',
+                              on_delete=models.CASCADE)
 
     objects = MessageManager()
 
     class Meta:
         if django.VERSION >= (1, 7):
-            app_label = 'kombu_transport_django'
+            app_label = 'kombu_django'
         db_table = 'djkombu_message'
         verbose_name = _('message')
         verbose_name_plural = _('messages')

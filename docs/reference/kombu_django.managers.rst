@@ -1,11 +1,11 @@
 ==========================================================
- Django Managers - kombu.transport.django.managers
+ Django Managers - kombu_django.managers
 ==========================================================
 
 .. contents::
     :local:
-.. currentmodule:: kombu.transport.django.managers
+.. currentmodule:: kombu_django.managers
 
-.. automodule:: kombu.transport.django.managers
+.. automodule:: kombu_django.managers
     :members:
     :undoc-members:

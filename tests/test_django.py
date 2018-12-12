@@ -1,6 +1,6 @@
 from __future__ import absolute_import, unicode_literals
 
-from funtests import transport
+from . import transport
 
 from kombu.tests.case import mock, skip
 
@@ -24,7 +24,7 @@ class test_django(transport.TransportCase):
                         'NAME': ':memory:',
                     },
                 },
-                INSTALLED_APPS=('kombu.transport.django',),
+                INSTALLED_APPS=('kombu_django',),
             )
         from django.core.management import call_command
         call_command('syncdb')

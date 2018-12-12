@@ -5,10 +5,10 @@
 .. contents::
     :local:
 .. currentmodule::
-    kombu.transport.django.management.commands.clean_kombu_messages
+    kombu_django.management.commands.clean_kombu_messages
 
 .. automodule::
-    kombu.transport.django.management.commands.clean_kombu_messages
+    kombu_django.management.commands.clean_kombu_messages
 
     :members:
     :undoc-members:

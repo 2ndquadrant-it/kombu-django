@@ -1,10 +1,10 @@
 =========================================
- kombu.transport.django
+ kombu_django
 =========================================
 
-.. currentmodule:: kombu.transport.django
+.. currentmodule:: kombu_django
 
-.. automodule:: kombu.transport.django
+.. automodule:: kombu_django
 
     .. contents::
         :local:
