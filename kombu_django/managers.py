@@ -55,7 +55,7 @@ def select_for_update(qs):
     if connection.vendor == 'oracle':
         return qs
     try:
-        return qs.select_for_update()
+        return qs.select_for_update(skip_locked=True)
     except AttributeError:
         return qs
 
